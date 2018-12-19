@@ -1,0 +1,59 @@
+float dia = 200; //diameter of outer ellipses
+float sub = 150; //diameter of inner ellipses
+float w; // initially white brightness value
+float b; // initially black brightness value
+float xoff = 15; //x offset
+float yoff = wide/2; //y offset
+float ellratio = 1.5; //ratio of vertical to horiontal diameters of both sets of ellipses
+float recty = 20; //height of center bar
+float vertwid = 50; //width of edge boxes
+float xleft = 60;
+float xright = wide - (2.5*xleft);
+
+void alphadraw() {
+  checkbeta();
+  draw1();
+  draw2();
+  draw3();
+  draw4();
+}
+
+void checkbeta() { //sets color values to switch
+  if (swi == 1) {
+        w = 255;
+        b = 0;
+    } else if (swi == 0) {
+      w = 0;
+      b = 255;
+  }
+}
+
+void draw1 () { // outer ellipses
+  stroke(w);
+  fill(w);
+  //strokeWeight(12);
+  ellipse(xoff+320,yoff,dia,1.5*dia);
+  ellipse(xoff+50,yoff,dia,1.5*dia);
+}
+
+void draw2() { //inner ellipses
+  stroke(b);
+  fill(b);
+  ellipse(xoff+310,yoff,sub,ellratio*sub);
+  ellipse(xoff+60,yoff,sub,ellratio*sub);
+}
+
+void draw3() { //center rectangle
+  stroke(w);
+  fill(w);
+  //strokeWeight(0);
+  fill(w);
+  rect(xoff+xleft,yoff-10,xright,recty);
+}
+
+void draw4() { // outer boxes
+  stroke(b);
+  fill(b);
+  rect(0,0,vertwid,wide);
+  rect(wide-vertwid,0,vertwid,wide);
+}
