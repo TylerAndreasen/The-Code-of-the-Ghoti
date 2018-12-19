@@ -1,0 +1,29 @@
+float swi = 0;
+float i   = 0;
+float wide = 400;
+float high;
+
+void setup() {
+  size(400, 400);
+}
+
+void draw() {
+  check();
+  background(b);
+  alphadraw();  
+
+}
+
+void check() {
+  if (i > 150) {
+    i = 0;
+    if (swi == 0) {
+      swi = 1;
+    } else if (swi == 1) {
+      swi = 0;
+    } else {
+      println("Aaaaahhhhhhhhhhhhh");
+    }
+  }
+  i++;
+}
