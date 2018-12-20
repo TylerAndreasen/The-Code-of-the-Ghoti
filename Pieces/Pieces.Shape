@@ -32,8 +32,8 @@ void draw1 () { // outer ellipses
   stroke(w);
   fill(w);
   //strokeWeight(12);
-  ellipse(xoff+320,yoff,dia,1.5*dia);
-  ellipse(xoff+50,yoff,dia,1.5*dia);
+  ellipse(xoff+320,yoff,dia,ellratio*dia);
+  ellipse(xoff+50,yoff,dia,ellratio*dia);
 }
 
 void draw2() { //inner ellipses
