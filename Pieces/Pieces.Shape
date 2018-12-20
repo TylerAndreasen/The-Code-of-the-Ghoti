@@ -6,9 +6,9 @@ float xoff = 15; //x offset
 float yoff = wide/2; //y offset
 float ellratio = 1.5; //ratio of vertical to horiontal diameters of both sets of ellipses
 float recty = 20; //height of center bar
+float xleft = 60; //inward offset of middle bar from left
+float xright = wide - (2.5*xleft); //inward offset of middle bar from right
 float vertwid = 50; //width of edge boxes
-float xleft = 60;
-float xright = wide - (2.5*xleft);
 
 void alphadraw() {
   checkbeta();
@@ -45,8 +45,6 @@ void draw2() { //inner ellipses
 
 void draw3() { //center rectangle
   stroke(w);
-  fill(w);
-  //strokeWeight(0);
   fill(w);
   rect(xoff+xleft,yoff-10,xright,recty);
 }
