@@ -1,0 +1,75 @@
+float mid = 300; // the middle of the window in the x
+float add; // a constantly counting value to move be used to move all of the y-values at once
+float range = 200; // the scale of the vertical movement
+float xcha = 5; // the value of the base speed 
+float xcc = -1; // the amount that each sucessive point moves more quickly/slowly in the x
+float div = 30; // num that scales down the value of \add\
+float dvml = -5; // the amount that each sucessive point moves more quickly/slowly in the y
+
+float x = 0; // Staring Positions for the Points
+float y = mid-200;
+float x1 = 0; //Point 2
+float y1 = mid-200;
+float x2 = 0; //Point 3
+float y2 = mid-200;
+float x3 = 0; //Point 4
+float y3 = mid-200;
+float x4 = 0; //Point 5
+float y4 = mid-200;
+
+void setup() {
+  size(600, 600);
+}
+
+void draw() {
+  background(0);
+  stroke(255);
+  fill(255);
+  ellipse(x, y, 6, 6); // Drawing the all of the points 
+  ellipse(x1, y1, 6, 6);
+  ellipse(x2, y2, 6, 6);
+  ellipse(x3, y3, 6, 6);
+  ellipse(x4, y4, 6, 6);
+
+  x += xcha; // Moving all of the points
+  y = range*cos(add/ (div+dvml))+mid;
+
+  x1 += xcha + (xcc);
+  y1 = range*cos(add/ (div+ (2*dvml)))+mid;
+
+  x2 += xcha + (2*xcc);
+  y2 = range*cos(add/ (div+ (3*dvml)))+mid;
+
+  x3 += xcha + (3*xcc);
+  y3 = range*cos(add/ (div+ (4*dvml)))+mid;
+
+  x4 += xcha + (4*xcc);
+  y4 = range*cos(add/ (div+ (5*dvml)))+mid;
+
+  add++; 
+
+// Setting the points back to the left side of the window
+  if (x > 600) {
+    x = 0;
+  }   
+  if (x1 > 600) {
+    x1 = 0;
+  } 
+  if (x2 > 600) {
+    x2 = 0;
+  } 
+  if (x3 > 600) {
+    x3 = 0;
+  } 
+  if (x4 > 600) {
+    x4 = 0;
+  }
+
+//draws the lines between the points
+  stroke(250, 10, 0);
+  line(x, y, x1, y1);
+  line(x1, y1, x2, y2);
+  line(x2, y2, x3, y3);
+  line(x3, y3, x4, y4);
+  line(x4, y4, x, y);
+}
