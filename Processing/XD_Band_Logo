@@ -1,0 +1,55 @@
+float b = 200; //buffer value
+float s = 100; //radial size
+float m = 1.9; //value used to shift the white circle anb black rectangle of the letter D 
+float c = 30; //sliding color shifter
+
+void setup() {
+  size(600, 500);
+  background(0);
+}
+
+void draw() {
+  //Visible Part of D
+  strokeWeight(0);
+  stroke(255-(4*c));
+  fill(255-(4*c));
+  ellipse(m*b, 1.3*b, 1.8*s, 2*s);
+
+  //Hiding Left half of D
+  stroke(0);
+  fill(0);
+  rectMode(CORNER);
+  rect(m*b, b, -s, -3*s);
+  rect(m*b, 2*b, -s, -3*s);
+
+
+  //X background
+  fill(50);
+  strokeWeight(10);
+  stroke(0);
+  ellipse(1.3*b, 1.3*b, 1.5*s+2, 1.5*s+2);
+  stroke(255);
+  strokeWeight(1);
+  ellipse(1.3*b, 1.3*b, 1.5*s, 1.5*s);
+
+  //Top right cicle
+  stroke(255);
+  fill(255);
+  strokeWeight(1);
+  ellipse(b, b, s, s);
+
+  //Top left circle
+  stroke(255-c);
+  fill(255-c);
+  ellipse(1.6*b, b, s, s);
+  
+  //Bottom left circle
+  stroke(255-(2*c));
+  fill(255-(2*c));
+  ellipse(b, 1.6*b, s, s);
+
+  //Bottom right circle 
+  stroke(255-(3*c));
+  fill(255-(3*c));
+  ellipse(1.6*b, 1.6*b, s, s);
+}
